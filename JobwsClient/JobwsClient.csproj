@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{771EF729-15CF-4465-A412-ABFB407575E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobwsClient</RootNamespace>
+    <AssemblyName>JobwsClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Beisen.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.Common.1.1.0.37\lib\net45\Beisen.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Beisen.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.Configuration.1.1.0.38\lib\net45\Beisen.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Beisen.Configuration.XmlSerializers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.Configuration.1.1.0.38\lib\net45\Beisen.Configuration.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Beisen.ConnectionPool, Version=1.1.0.1198, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.ConnectionPool.1.1.0.1198\lib\net45\Beisen.ConnectionPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Beisen.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.Logging.1.1.0.68\lib\net45\Beisen.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Beisen.RedisV2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Beisen.RedisV2.1.1.0.878\lib\net45\Beisen.RedisV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Ccr.Core, Version=1.5.507.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ccr.Core.1.5.507.0\lib\net35\Ccr.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentScheduler, Version=5.1.4.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.5.1.5\lib\net45\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <HintPath>..\packages\log4net.1.2.9.0\lib\net11\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySpace.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySpace.Shared.1.1.0.7\lib\net35\MySpace.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PowerCollections.1.0.2141.24679\lib\net35\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Wintellect.PowerThreading, Version=1.0.2352.19171, Culture=neutral, PublicKeyToken=e7bb31f1c2166e2e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wintellect.PowerThreading.1.0.0.0\lib\net35\Wintellect.PowerThreading.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Extension.cs" />
+    <Compile Include="Common\ILogHelper.cs" />
+    <Compile Include="Common\LogHelper.cs" />
+    <Compile Include="Config\RedisConfig.cs" />
+    <Compile Include="DistributeRedisLock.cs" />
+    <Compile Include="JobClient.cs" />
+    <Compile Include="JobProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
